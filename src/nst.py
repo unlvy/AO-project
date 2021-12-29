@@ -90,7 +90,7 @@ def gram_matrix(input_tensor):
         gram matrix
     """
     result = tf.linalg.einsum('bijc,bijd->bcd', input_tensor, input_tensor)
-    shape = tf.shape(input_tensor)
+    input_shape = tf.shape(input_tensor)
     n = tf.cast(input_shape[1] * input_shape[2], tf.float32)
     return result / (n)
 
