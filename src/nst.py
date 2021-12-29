@@ -48,8 +48,9 @@ def init_result_image(base_image, noise_ratio):
         initialized result image as tensor
     """
     image = keras.preprocessing.image.img_to_array(base_image)
-    noise_image = 255 * np.random.rand(image.shape[0], image.shape[1], image.shape[2])
+    noise_image = 80 * np.random.rand(image.shape[0], image.shape[1], image.shape[2]) - 40
     image = noise_image * noise_ratio + image * (1 - noise_ratio)
+    image = np.clip(image, 0, 255)
     image = np.expand_dims(image, axis = 0)
     image =  keras.applications.vgg19.preprocess_input(image)
     return tf.convert_to_tensor(image, dtype = tf.float32)    
