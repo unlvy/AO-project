@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interface_with_layouts_no_groupsgaHWMC.ui'
+## Form generated from reading UI file 'interface_with_layouts_no_groupsAngcAQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 636)
+        MainWindow.resize(1324, 794)
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -39,24 +39,73 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.btn_src_in = QPushButton(self.centralwidget)
-        self.btn_src_in.setObjectName(u"btn_src_in")
+        self.source_in = QPushButton(self.centralwidget)
+        self.source_in.setObjectName(u"source_in")
         sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.btn_src_in.sizePolicy().hasHeightForWidth())
-        self.btn_src_in.setSizePolicy(sizePolicy1)
-        self.btn_src_in.setMinimumSize(QSize(224, 224))
+        sizePolicy1.setHeightForWidth(self.source_in.sizePolicy().hasHeightForWidth())
+        self.source_in.setSizePolicy(sizePolicy1)
+        self.source_in.setMinimumSize(QSize(224, 224))
 
-        self.verticalLayout_4.addWidget(self.btn_src_in)
+        self.verticalLayout_4.addWidget(self.source_in)
 
-        self.btn_stl_in = QPushButton(self.centralwidget)
-        self.btn_stl_in.setObjectName(u"btn_stl_in")
-        sizePolicy1.setHeightForWidth(self.btn_stl_in.sizePolicy().hasHeightForWidth())
-        self.btn_stl_in.setSizePolicy(sizePolicy1)
-        self.btn_stl_in.setMinimumSize(QSize(224, 224))
+        self.style_in = QPushButton(self.centralwidget)
+        self.style_in.setObjectName(u"style_in")
+        sizePolicy1.setHeightForWidth(self.style_in.sizePolicy().hasHeightForWidth())
+        self.style_in.setSizePolicy(sizePolicy1)
+        self.style_in.setMinimumSize(QSize(224, 224))
 
-        self.verticalLayout_4.addWidget(self.btn_stl_in)
+        self.verticalLayout_4.addWidget(self.style_in)
+
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.optimizer_label = QLabel(self.centralwidget)
+        self.optimizer_label.setObjectName(u"optimizer_label")
+        self.optimizer_label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_6.addWidget(self.optimizer_label)
+
+        self.optimizer_box = QComboBox(self.centralwidget)
+        self.optimizer_box.addItem("")
+        self.optimizer_box.addItem("")
+        self.optimizer_box.addItem("")
+        self.optimizer_box.addItem("")
+        self.optimizer_box.addItem("")
+        self.optimizer_box.addItem("")
+        self.optimizer_box.addItem("")
+        self.optimizer_box.addItem("")
+        self.optimizer_box.setObjectName(u"optimizer_box")
+        self.optimizer_box.setInsertPolicy(QComboBox.InsertAtBottom)
+        self.optimizer_box.setFrame(True)
+
+        self.horizontalLayout_6.addWidget(self.optimizer_box)
+
+        self.horizontalLayout_6.setStretch(0, 7)
+        self.horizontalLayout_6.setStretch(1, 16)
+
+        self.verticalLayout_4.addLayout(self.horizontalLayout_6)
+
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.learning_rate_label = QLabel(self.centralwidget)
+        self.learning_rate_label.setObjectName(u"learning_rate_label")
+
+        self.horizontalLayout_7.addWidget(self.learning_rate_label)
+
+        self.learning_rate = QDoubleSpinBox(self.centralwidget)
+        self.learning_rate.setObjectName(u"learning_rate")
+        self.learning_rate.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+        self.learning_rate.setMinimum(0.010000000000000)
+        self.learning_rate.setMaximum(10.000000000000000)
+        self.learning_rate.setSingleStep(0.010000000000000)
+
+        self.horizontalLayout_7.addWidget(self.learning_rate)
+
+        self.horizontalLayout_7.setStretch(0, 7)
+        self.horizontalLayout_7.setStretch(1, 16)
+
+        self.verticalLayout_4.addLayout(self.horizontalLayout_7)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -66,10 +115,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.out_size_label)
 
-        self.out_width = QLineEdit(self.centralwidget)
+        self.out_width = QSpinBox(self.centralwidget)
         self.out_width.setObjectName(u"out_width")
-        self.out_width.setFrame(True)
-        self.out_width.setAlignment(Qt.AlignCenter)
+        self.out_width.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+        self.out_width.setMinimum(112)
+        self.out_width.setMaximum(1920)
 
         self.horizontalLayout_3.addWidget(self.out_width)
 
@@ -79,13 +129,18 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.out_xsep)
 
-        self.out_height = QLineEdit(self.centralwidget)
+        self.out_height = QSpinBox(self.centralwidget)
         self.out_height.setObjectName(u"out_height")
-        self.out_height.setFrame(True)
-        self.out_height.setAlignment(Qt.AlignCenter)
+        self.out_height.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+        self.out_height.setMinimum(112)
+        self.out_height.setMaximum(1080)
 
         self.horizontalLayout_3.addWidget(self.out_height)
 
+        self.horizontalLayout_3.setStretch(0, 7)
+        self.horizontalLayout_3.setStretch(1, 7)
+        self.horizontalLayout_3.setStretch(2, 1)
+        self.horizontalLayout_3.setStretch(3, 7)
 
         self.verticalLayout_4.addLayout(self.horizontalLayout_3)
 
@@ -97,10 +152,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.comp_size_label)
 
-        self.comp_width = QLineEdit(self.centralwidget)
+        self.comp_width = QSpinBox(self.centralwidget)
         self.comp_width.setObjectName(u"comp_width")
-        self.comp_width.setFrame(True)
-        self.comp_width.setAlignment(Qt.AlignCenter)
+        self.comp_width.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+        self.comp_width.setMinimum(112)
+        self.comp_width.setMaximum(1920)
 
         self.horizontalLayout_2.addWidget(self.comp_width)
 
@@ -110,13 +166,18 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.comp_xsep)
 
-        self.comp_height = QLineEdit(self.centralwidget)
+        self.comp_height = QSpinBox(self.centralwidget)
         self.comp_height.setObjectName(u"comp_height")
-        self.comp_height.setFrame(True)
-        self.comp_height.setAlignment(Qt.AlignCenter)
+        self.comp_height.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+        self.comp_height.setMinimum(112)
+        self.comp_height.setMaximum(1080)
 
         self.horizontalLayout_2.addWidget(self.comp_height)
 
+        self.horizontalLayout_2.setStretch(0, 7)
+        self.horizontalLayout_2.setStretch(1, 7)
+        self.horizontalLayout_2.setStretch(2, 1)
+        self.horizontalLayout_2.setStretch(3, 7)
 
         self.verticalLayout_4.addLayout(self.horizontalLayout_2)
 
@@ -124,6 +185,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setStretch(1, 7)
         self.verticalLayout_4.setStretch(2, 1)
         self.verticalLayout_4.setStretch(3, 1)
+        self.verticalLayout_4.setStretch(4, 1)
+        self.verticalLayout_4.setStretch(5, 1)
 
         self.horizontalLayout_9.addLayout(self.verticalLayout_4)
 
@@ -183,7 +246,7 @@ class Ui_MainWindow(object):
         self.content_layer_box.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 221, 380))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 429, 380))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.block1_conv1_box = QCheckBox(self.scrollAreaWidgetContents)
@@ -289,7 +352,7 @@ class Ui_MainWindow(object):
         self.style_layer_box_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 220, 380))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 428, 380))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.block1_conv1_box_2 = QCheckBox(self.scrollAreaWidgetContents_2)
@@ -388,7 +451,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_9.addLayout(self.verticalLayout_10)
 
-        self.horizontalLayout_9.setStretch(0, 4)
+        self.horizontalLayout_9.setStretch(0, 3)
         self.horizontalLayout_9.setStretch(1, 7)
 
         self.horizontalLayout.addLayout(self.horizontalLayout_9)
@@ -400,25 +463,31 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+        self.optimizer_box.setCurrentIndex(2)
+
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.btn_src_in.setText(QCoreApplication.translate("MainWindow", u"*click to choose content*", None))
-        self.btn_stl_in.setText(QCoreApplication.translate("MainWindow", u"*click to choose style*", None))
+        self.source_in.setText(QCoreApplication.translate("MainWindow", u"*click to choose content*", None))
+        self.style_in.setText(QCoreApplication.translate("MainWindow", u"*click to choose style*", None))
+        self.optimizer_label.setText(QCoreApplication.translate("MainWindow", u"Optimizer:", None))
+        self.optimizer_box.setItemText(0, QCoreApplication.translate("MainWindow", u"Adadelta", None))
+        self.optimizer_box.setItemText(1, QCoreApplication.translate("MainWindow", u"Adagrad", None))
+        self.optimizer_box.setItemText(2, QCoreApplication.translate("MainWindow", u"Adam", None))
+        self.optimizer_box.setItemText(3, QCoreApplication.translate("MainWindow", u"Adamax", None))
+        self.optimizer_box.setItemText(4, QCoreApplication.translate("MainWindow", u"Ftrl", None))
+        self.optimizer_box.setItemText(5, QCoreApplication.translate("MainWindow", u"Nadam", None))
+        self.optimizer_box.setItemText(6, QCoreApplication.translate("MainWindow", u"RMSprop", None))
+        self.optimizer_box.setItemText(7, QCoreApplication.translate("MainWindow", u"SGD", None))
+
+        self.learning_rate_label.setText(QCoreApplication.translate("MainWindow", u"Learning rate:", None))
         self.out_size_label.setText(QCoreApplication.translate("MainWindow", u"Output size:", None))
-        self.out_width.setText("")
-        self.out_width.setPlaceholderText(QCoreApplication.translate("MainWindow", u"width", None))
         self.out_xsep.setText(QCoreApplication.translate("MainWindow", u"x", None))
-        self.out_height.setText("")
-        self.out_height.setPlaceholderText(QCoreApplication.translate("MainWindow", u"height", None))
         self.comp_size_label.setText(QCoreApplication.translate("MainWindow", u"Computation size:", None))
-        self.comp_width.setText("")
-        self.comp_width.setPlaceholderText(QCoreApplication.translate("MainWindow", u"width", None))
         self.comp_xsep.setText(QCoreApplication.translate("MainWindow", u"x", None))
-        self.comp_height.setText("")
-        self.comp_height.setPlaceholderText(QCoreApplication.translate("MainWindow", u"height", None))
         self.output_image.setText(QCoreApplication.translate("MainWindow", u"output", None))
         self.run_button.setText(QCoreApplication.translate("MainWindow", u"Run", None))
         self.progress_bar.setFormat(QCoreApplication.translate("MainWindow", u"completion: %p%", None))
