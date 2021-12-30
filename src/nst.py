@@ -224,7 +224,7 @@ def neural_style_transfer(
             loss += content_loss(content_features, result_features[n:], content_weights)
             # total variation loss, measure of noise in the image 
             loss += tf.image.total_variation(result_tensor) * total_variation_loss_weight
-            grad = tape.gradient(loss, result_tensor)
+        grad = tape.gradient(loss, result_tensor)
         # update result
         optimizer.apply_gradients([(grad, result_tensor)])
         
