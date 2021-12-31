@@ -461,6 +461,10 @@ class Ui_MainWindow(QMainWindow):
         self.statusbar.setObjectName(u"statusbar")
         self.setStatusBar(self.statusbar)
 
+        self.retranslateUi()
+        self.optimizer_box.setCurrentIndex(2)
+        QMetaObject.connectSlotsByName(self)
+
         # bind callback to stateChanged event
         self.block1_conv1_box.stateChanged.connect(self.uncheck)
         self.block1_conv2_box.stateChanged.connect(self.uncheck)
@@ -495,9 +499,8 @@ class Ui_MainWindow(QMainWindow):
         self.block5_conv3_box_2.stateChanged.connect(self.uncheck)
         self.block5_conv4_box_2.stateChanged.connect(self.uncheck)
 
-        self.retranslateUi()
-        self.optimizer_box.setCurrentIndex(2)
-        QMetaObject.connectSlotsByName(self)
+        self.source_in.clicked.connect(self.chooseImage)
+        self.style_in.clicked.connect(self.chooseImage)
     # setupUi
 
     def retranslateUi(self):
@@ -625,3 +628,16 @@ class Ui_MainWindow(QMainWindow):
                 self.block5_conv3_box.setChecked(False)
             elif self.sender() == self.block5_conv4_box_2:
                 self.block5_conv4_box.setChecked(False)
+
+    def openFileNameDialog(self):
+        options = QFileDialog.Options()
+        return QFileDialog.getOpenFileName(self,"Choose an image...", "","JPG file (*.jpg);;PNG file (*.png);;Bitmap file (*.bmp)", options=options)
+
+    def chooseImage(self):
+        self.sender().setText("")
+        if self.sender() == self.source_in:
+            self.img_content, _ = self.openFileNameDialog()
+            self.sender().setStyleSheet("background-image : url("+str(self.img_content)+");")
+        elif self.sender() == self.style_in:
+            self.img_style, _ = self.openFileNameDialog()
+            self.sender().setStyleSheet("background-image : url("+str(self.img_style)+");")
