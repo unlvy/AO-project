@@ -8,30 +8,30 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
+from PyQt5.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
     QRect, QSize, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
+from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
     QRadialGradient)
-from PySide2.QtWidgets import *
+from PyQt5.QtWidgets import *
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        if MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1324, 794)
+class Ui_MainWindow(QMainWindow):
+    def setupUi(self):
+        if self.objectName():
+            self.setObjectName(u"MainWindow")
+        self.resize(1324, 794)
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
-        MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QSize(800, 600))
-        MainWindow.setSizeIncrement(QSize(0, 0))
-        MainWindow.setContextMenuPolicy(Qt.NoContextMenu)
-        MainWindow.setLayoutDirection(Qt.LeftToRight)
-        MainWindow.setAutoFillBackground(True)
-        self.centralwidget = QWidget(MainWindow)
+        sizePolicy.setHeightForWidth(self.sizePolicy().hasHeightForWidth())
+        self.setSizePolicy(sizePolicy)
+        self.setMinimumSize(QSize(800, 600))
+        self.setSizeIncrement(QSize(0, 0))
+        self.setContextMenuPolicy(Qt.NoContextMenu)
+        self.setLayoutDirection(Qt.LeftToRight)
+        self.setAutoFillBackground(True)
+        self.centralwidget = QWidget(self)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -456,21 +456,52 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addLayout(self.horizontalLayout_9)
 
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QStatusBar(MainWindow)
+        self.setCentralWidget(self.centralwidget)
+        self.statusbar = QStatusBar(self)
         self.statusbar.setObjectName(u"statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        self.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
+        # bind callback to stateChanged event
+        self.block1_conv1_box.stateChanged.connect(self.uncheck)
+        self.block1_conv2_box.stateChanged.connect(self.uncheck)
+        self.block2_conv1_box.stateChanged.connect(self.uncheck)
+        self.block2_conv2_box.stateChanged.connect(self.uncheck)
+        self.block3_conv1_box.stateChanged.connect(self.uncheck)
+        self.block3_conv2_box.stateChanged.connect(self.uncheck)
+        self.block3_conv3_box.stateChanged.connect(self.uncheck)
+        self.block3_conv4_box.stateChanged.connect(self.uncheck)
+        self.block4_conv1_box.stateChanged.connect(self.uncheck)
+        self.block4_conv2_box.stateChanged.connect(self.uncheck)
+        self.block4_conv3_box.stateChanged.connect(self.uncheck)
+        self.block4_conv4_box.stateChanged.connect(self.uncheck)
+        self.block5_conv1_box.stateChanged.connect(self.uncheck)
+        self.block5_conv2_box.stateChanged.connect(self.uncheck)
+        self.block5_conv3_box.stateChanged.connect(self.uncheck)
+        self.block5_conv4_box.stateChanged.connect(self.uncheck)
+        self.block1_conv1_box_2.stateChanged.connect(self.uncheck)
+        self.block1_conv2_box_2.stateChanged.connect(self.uncheck)
+        self.block2_conv1_box_2.stateChanged.connect(self.uncheck)
+        self.block2_conv2_box_2.stateChanged.connect(self.uncheck)
+        self.block3_conv1_box_2.stateChanged.connect(self.uncheck)
+        self.block3_conv2_box_2.stateChanged.connect(self.uncheck)
+        self.block3_conv3_box_2.stateChanged.connect(self.uncheck)
+        self.block3_conv4_box_2.stateChanged.connect(self.uncheck)
+        self.block4_conv1_box_2.stateChanged.connect(self.uncheck)
+        self.block4_conv2_box_2.stateChanged.connect(self.uncheck)
+        self.block4_conv3_box_2.stateChanged.connect(self.uncheck)
+        self.block4_conv4_box_2.stateChanged.connect(self.uncheck)
+        self.block5_conv1_box_2.stateChanged.connect(self.uncheck)
+        self.block5_conv2_box_2.stateChanged.connect(self.uncheck)
+        self.block5_conv3_box_2.stateChanged.connect(self.uncheck)
+        self.block5_conv4_box_2.stateChanged.connect(self.uncheck)
 
+        self.retranslateUi()
         self.optimizer_box.setCurrentIndex(2)
-
-
-        QMetaObject.connectSlotsByName(MainWindow)
+        QMetaObject.connectSlotsByName(self)
     # setupUi
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+    def retranslateUi(self):
+        self.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.source_in.setText(QCoreApplication.translate("MainWindow", u"*click to choose content*", None))
         self.style_in.setText(QCoreApplication.translate("MainWindow", u"*click to choose style*", None))
         self.optimizer_label.setText(QCoreApplication.translate("MainWindow", u"Optimizer:", None))
@@ -526,4 +557,71 @@ class Ui_MainWindow(object):
         self.block5_conv3_box_2.setText(QCoreApplication.translate("MainWindow", u"block5_conv3", None))
         self.block5_conv4_box_2.setText(QCoreApplication.translate("MainWindow", u"block5_conv4", None))
     # retranslateUi
-
+    
+    # uncheck if respective another checkbox is checked
+    def uncheck(self, state):
+        if state == Qt.Checked:  
+            if self.sender() == self.block1_conv1_box:
+                self.block1_conv1_box_2.setChecked(False)
+            elif self.sender() == self.block1_conv2_box:
+                self.block1_conv2_box_2.setChecked(False)
+            elif self.sender() == self.block2_conv1_box:
+                self.block2_conv1_box_2.setChecked(False)
+            elif self.sender() == self.block2_conv2_box:
+                self.block2_conv2_box_2.setChecked(False)
+            elif self.sender() == self.block3_conv1_box:
+                self.block3_conv1_box_2.setChecked(False)
+            elif self.sender() == self.block3_conv2_box:
+                self.block3_conv2_box_2.setChecked(False)
+            elif self.sender() == self.block3_conv3_box:
+                self.block3_conv3_box_2.setChecked(False)
+            elif self.sender() == self.block3_conv4_box:
+                self.block3_conv4_box_2.setChecked(False)
+            elif self.sender() == self.block4_conv1_box:
+                self.block4_conv1_box_2.setChecked(False)
+            elif self.sender() == self.block4_conv2_box:
+                self.block4_conv2_box_2.setChecked(False)
+            elif self.sender() == self.block4_conv3_box:
+                self.block4_conv3_box_2.setChecked(False)
+            elif self.sender() == self.block4_conv4_box:
+                self.block4_conv4_box_2.setChecked(False)
+            elif self.sender() == self.block5_conv1_box:
+                self.block5_conv1_box_2.setChecked(False)
+            elif self.sender() == self.block5_conv2_box:
+                self.block5_conv2_box_2.setChecked(False)
+            elif self.sender() == self.block5_conv3_box:
+                self.block5_conv3_box_2.setChecked(False)
+            elif self.sender() == self.block5_conv4_box:
+                self.block5_conv4_box_2.setChecked(False)
+            elif self.sender() == self.block1_conv1_box_2:
+                self.block1_conv1_box.setChecked(False)
+            elif self.sender() == self.block1_conv2_box_2:
+                self.block1_conv2_box.setChecked(False)
+            elif self.sender() == self.block2_conv1_box_2:
+                self.block2_conv1_box.setChecked(False)
+            elif self.sender() == self.block2_conv2_box_2:
+                self.block2_conv2_box.setChecked(False)
+            elif self.sender() == self.block3_conv1_box_2:
+                self.block3_conv1_box.setChecked(False)
+            elif self.sender() == self.block3_conv2_box_2:
+                self.block3_conv2_box.setChecked(False)
+            elif self.sender() == self.block3_conv3_box_2:
+                self.block3_conv3_box.setChecked(False)
+            elif self.sender() == self.block3_conv4_box_2:
+                self.block3_conv4_box.setChecked(False)
+            elif self.sender() == self.block4_conv1_box_2:
+                self.block4_conv1_box.setChecked(False)
+            elif self.sender() == self.block4_conv2_box_2:
+                self.block4_conv2_box.setChecked(False)
+            elif self.sender() == self.block4_conv3_box_2:
+                self.block4_conv3_box.setChecked(False)
+            elif self.sender() == self.block4_conv4_box_2:
+                self.block4_conv4_box.setChecked(False)
+            elif self.sender() == self.block5_conv1_box_2:
+                self.block5_conv1_box.setChecked(False)
+            elif self.sender() == self.block5_conv2_box_2:
+                self.block5_conv2_box.setChecked(False)
+            elif self.sender() == self.block5_conv3_box_2:
+                self.block5_conv3_box.setChecked(False)
+            elif self.sender() == self.block5_conv4_box_2:
+                self.block5_conv4_box.setChecked(False)
