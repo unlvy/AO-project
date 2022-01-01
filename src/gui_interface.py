@@ -720,6 +720,7 @@ class Ui_MainWindow(QMainWindow):
 
         self.verticalLayout_10.setStretch(0, 20)
         self.verticalLayout_10.setStretch(1, 1)
+        self.verticalLayout_10.setStretch(2, 9)
 
         self.horizontalLayout_9.addLayout(self.verticalLayout_10)
 
