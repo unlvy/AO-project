@@ -781,6 +781,87 @@ class Ui_MainWindow(QMainWindow):
         self.style_layer_box.verticalScrollBar().valueChanged.connect(self.syncScrollbar)
         self.content_weight_box.verticalScrollBar().valueChanged.connect(self.syncScrollbar)
         self.style_weight_box.verticalScrollBar().valueChanged.connect(self.syncScrollbar)
+
+        # bind callback to update run_button
+        self.block1_conv1_box.stateChanged.connect(self.unlockRunButton)
+        self.block1_conv2_box.stateChanged.connect(self.unlockRunButton)
+        self.block2_conv1_box.stateChanged.connect(self.unlockRunButton)
+        self.block2_conv2_box.stateChanged.connect(self.unlockRunButton)
+        self.block3_conv1_box.stateChanged.connect(self.unlockRunButton)
+        self.block3_conv2_box.stateChanged.connect(self.unlockRunButton)
+        self.block3_conv3_box.stateChanged.connect(self.unlockRunButton)
+        self.block3_conv4_box.stateChanged.connect(self.unlockRunButton)
+        self.block4_conv1_box.stateChanged.connect(self.unlockRunButton)
+        self.block4_conv2_box.stateChanged.connect(self.unlockRunButton)
+        self.block4_conv3_box.stateChanged.connect(self.unlockRunButton)
+        self.block4_conv4_box.stateChanged.connect(self.unlockRunButton)
+        self.block5_conv1_box.stateChanged.connect(self.unlockRunButton)
+        self.block5_conv2_box.stateChanged.connect(self.unlockRunButton)
+        self.block5_conv3_box.stateChanged.connect(self.unlockRunButton)
+        self.block5_conv4_box.stateChanged.connect(self.unlockRunButton)
+        self.block1_conv1_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block1_conv2_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block2_conv1_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block2_conv2_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block3_conv1_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block3_conv2_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block3_conv3_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block3_conv4_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block4_conv1_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block4_conv2_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block4_conv3_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block4_conv4_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block5_conv1_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block5_conv2_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block5_conv3_box_2.stateChanged.connect(self.unlockRunButton)
+        self.block5_conv4_box_2.stateChanged.connect(self.unlockRunButton)
+        self.source_in.clicked.connect(self.unlockRunButton)
+        self.style_in.clicked.connect(self.unlockRunButton)
+
+        # bind callback to unlock save button once the progress bar hits 100%
+        self.progress_bar.valueChanged.connect(self.unlockSaveButton)
+
+        # block widgets which can't work at the start of the app
+        self.run_button.setEnabled(False)
+        self.save_to_file_button.setEnabled(False)
+        self.progress_bar.setEnabled(False)
+        self.progress_bar.setValue(0)
+        self.block1_conv1_label.setEnabled(False)
+        self.block1_conv2_label.setEnabled(False)
+        self.block2_conv1_label.setEnabled(False)
+        self.block2_conv2_label.setEnabled(False)
+        self.block3_conv1_label.setEnabled(False)
+        self.block3_conv2_label.setEnabled(False)
+        self.block3_conv3_label.setEnabled(False)
+        self.block3_conv4_label.setEnabled(False)
+        self.block4_conv1_label.setEnabled(False)
+        self.block4_conv2_label.setEnabled(False)
+        self.block4_conv3_label.setEnabled(False)
+        self.block4_conv4_label.setEnabled(False)
+        self.block5_conv1_label.setEnabled(False)
+        self.block5_conv2_label.setEnabled(False)
+        self.block5_conv3_label.setEnabled(False)
+        self.block5_conv4_label.setEnabled(False)
+        self.block1_conv1_label_2.setEnabled(False)
+        self.block1_conv2_label_2.setEnabled(False)
+        self.block2_conv1_label_2.setEnabled(False)
+        self.block2_conv2_label_2.setEnabled(False)
+        self.block3_conv1_label_2.setEnabled(False)
+        self.block3_conv2_label_2.setEnabled(False)
+        self.block3_conv3_label_2.setEnabled(False)
+        self.block3_conv4_label_2.setEnabled(False)
+        self.block4_conv1_label_2.setEnabled(False)
+        self.block4_conv2_label_2.setEnabled(False)
+        self.block4_conv3_label_2.setEnabled(False)
+        self.block4_conv4_label_2.setEnabled(False)
+        self.block5_conv1_label_2.setEnabled(False)
+        self.block5_conv2_label_2.setEnabled(False)
+        self.block5_conv3_label_2.setEnabled(False)
+        self.block5_conv4_label_2.setEnabled(False)
+
+        # additional flags
+        self.contentImageSet = False
+        self.styleImageSet = False
     # setupUi
 
     def retranslateUi(self):
@@ -847,7 +928,7 @@ class Ui_MainWindow(QMainWindow):
 
     # uncheck if respective another checkbox is checked
     def uncheck(self, state):
-        if state == Qt.Checked:  
+        if state == Qt.Checked:
             if self.sender() == self.block1_conv1_box:
                 self.block1_conv1_box_2.setChecked(False)
                 self.block1_conv1_label_2.setEnabled(False)
@@ -987,9 +1068,11 @@ class Ui_MainWindow(QMainWindow):
         if self.sender() == self.source_in:
             self.img_content, _ = self.openFileNameDialog()
             self.sender().setStyleSheet("background-image : url("+str(self.img_content)+");")
+            self.contentImageSet = True
         elif self.sender() == self.style_in:
             self.img_style, _ = self.openFileNameDialog()
             self.sender().setStyleSheet("background-image : url("+str(self.img_style)+");")
+            self.styleImageSet = True
 
     # adjust other scrollbars to current one's value
     def syncScrollbar(self, value):
@@ -1009,3 +1092,47 @@ class Ui_MainWindow(QMainWindow):
         swb.setValue(percent * (swb.maximum() - swb.minimum()))
         clb.setValue(percent * (clb.maximum() - clb.minimum()))
         sb.blockSignals(False)
+
+    def isAnyLayerChecked(self):
+        return ((
+            self.block1_conv1_box.isChecked() or
+            self.block1_conv2_box.isChecked() or
+            self.block2_conv1_box.isChecked() or
+            self.block2_conv2_box.isChecked() or
+            self.block3_conv1_box.isChecked() or
+            self.block3_conv2_box.isChecked() or
+            self.block3_conv3_box.isChecked() or
+            self.block3_conv4_box.isChecked() or
+            self.block4_conv1_box.isChecked() or
+            self.block4_conv2_box.isChecked() or
+            self.block4_conv3_box.isChecked() or
+            self.block4_conv4_box.isChecked() or
+            self.block5_conv1_box.isChecked() or
+            self.block5_conv2_box.isChecked() or
+            self.block5_conv3_box.isChecked() or
+            self.block5_conv4_box.isChecked()) and
+            (self.block1_conv1_box_2.isChecked() or
+            self.block1_conv2_box_2.isChecked() or
+            self.block2_conv1_box_2.isChecked() or
+            self.block2_conv2_box_2.isChecked() or
+            self.block3_conv1_box_2.isChecked() or
+            self.block3_conv2_box_2.isChecked() or
+            self.block3_conv3_box_2.isChecked() or
+            self.block3_conv4_box_2.isChecked() or
+            self.block4_conv1_box_2.isChecked() or
+            self.block4_conv2_box_2.isChecked() or
+            self.block4_conv3_box_2.isChecked() or
+            self.block4_conv4_box_2.isChecked() or
+            self.block5_conv1_box_2.isChecked() or
+            self.block5_conv2_box_2.isChecked() or
+            self.block5_conv3_box_2.isChecked() or
+            self.block5_conv4_box_2.isChecked()))
+
+    def areBothImagesSet(self):
+        return self.contentImageSet and self.styleImageSet
+
+    def unlockRunButton(self):
+        self.run_button.setEnabled(self.isAnyLayerChecked() and self.areBothImagesSet())
+
+    def unlockSaveButton(self):
+        self.save_to_file_button.setEnabled(self.run_button.isEnabled() and self.progress_bar.value(100))
