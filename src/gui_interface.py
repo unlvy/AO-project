@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interface_with_layouts_no_groupsAngcAQ.ui'
+## Form generated from reading UI file 'interface_with_layouts_no_groupsFUQquL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -33,8 +33,8 @@ class Ui_MainWindow(QMainWindow):
         self.setAutoFillBackground(True)
         self.centralwidget = QWidget(self)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.horizontalLayout = QHBoxLayout(self.centralwidget)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.verticalLayout_11 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.horizontalLayout_9 = QHBoxLayout()
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.verticalLayout_4 = QVBoxLayout()
@@ -57,6 +57,25 @@ class Ui_MainWindow(QMainWindow):
         self.style_in.setMinimumSize(QSize(224, 224))
 
         self.verticalLayout_4.addWidget(self.style_in)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+
+        self.horizontalLayout_8.addWidget(self.label)
+
+        self.iterations = QSpinBox(self.centralwidget)
+        self.iterations.setObjectName(u"iterations")
+        self.iterations.setMinimum(1)
+        self.iterations.setMaximum(10000)
+
+        self.horizontalLayout_8.addWidget(self.iterations)
+
+        self.horizontalLayout_8.setStretch(0, 7)
+        self.horizontalLayout_8.setStretch(1, 16)
+
+        self.verticalLayout_4.addLayout(self.horizontalLayout_8)
 
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
@@ -96,6 +115,7 @@ class Ui_MainWindow(QMainWindow):
         self.learning_rate = QDoubleSpinBox(self.centralwidget)
         self.learning_rate.setObjectName(u"learning_rate")
         self.learning_rate.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+        self.learning_rate.setKeyboardTracking(True)
         self.learning_rate.setMinimum(0.010000000000000)
         self.learning_rate.setMaximum(10.000000000000000)
         self.learning_rate.setSingleStep(0.010000000000000)
@@ -187,6 +207,7 @@ class Ui_MainWindow(QMainWindow):
         self.verticalLayout_4.setStretch(3, 1)
         self.verticalLayout_4.setStretch(4, 1)
         self.verticalLayout_4.setStretch(5, 1)
+        self.verticalLayout_4.setStretch(6, 1)
 
         self.horizontalLayout_9.addLayout(self.verticalLayout_4)
 
@@ -225,7 +246,17 @@ class Ui_MainWindow(QMainWindow):
 
         self.horizontalLayout_4.addWidget(self.progress_bar)
 
-        self.horizontalLayout_4.setStretch(1, 9)
+        self.save_to_file_button = QPushButton(self.centralwidget)
+        self.save_to_file_button.setObjectName(u"save_to_file_button")
+        self.save_to_file_button.setEnabled(True)
+        self.save_to_file_button.setCheckable(False)
+        self.save_to_file_button.setChecked(False)
+
+        self.horizontalLayout_4.addWidget(self.save_to_file_button)
+
+        self.horizontalLayout_4.setStretch(0, 1)
+        self.horizontalLayout_4.setStretch(1, 8)
+        self.horizontalLayout_4.setStretch(2, 1)
 
         self.verticalLayout_10.addLayout(self.horizontalLayout_4)
 
@@ -246,7 +277,7 @@ class Ui_MainWindow(QMainWindow):
         self.content_layer_box.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 429, 380))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 201, 380))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.block1_conv1_box = QCheckBox(self.scrollAreaWidgetContents)
@@ -337,6 +368,125 @@ class Ui_MainWindow(QMainWindow):
 
         self.horizontalLayout_5.addLayout(self.verticalLayout_5)
 
+        self.verticalLayout_6 = QVBoxLayout()
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.content_weight_box_label = QLabel(self.centralwidget)
+        self.content_weight_box_label.setObjectName(u"content_weight_box_label")
+
+        self.verticalLayout_6.addWidget(self.content_weight_box_label)
+
+        self.content_weight_box = QScrollArea(self.centralwidget)
+        self.content_weight_box.setObjectName(u"content_weight_box")
+        self.content_weight_box.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.content_weight_box.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_3 = QWidget()
+        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 201, 428))
+        self.verticalLayout_8 = QVBoxLayout(self.scrollAreaWidgetContents_3)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.block1_conv1_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block1_conv1_label.setObjectName(u"block1_conv1_label")
+        self.block1_conv1_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block1_conv1_label)
+
+        self.block1_conv2_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block1_conv2_label.setObjectName(u"block1_conv2_label")
+        self.block1_conv2_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block1_conv2_label)
+
+        self.block2_conv1_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block2_conv1_label.setObjectName(u"block2_conv1_label")
+        self.block2_conv1_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block2_conv1_label)
+
+        self.block2_conv2_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block2_conv2_label.setObjectName(u"block2_conv2_label")
+        self.block2_conv2_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block2_conv2_label)
+
+        self.block3_conv1_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block3_conv1_label.setObjectName(u"block3_conv1_label")
+        self.block3_conv1_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block3_conv1_label)
+
+        self.block3_conv2_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block3_conv2_label.setObjectName(u"block3_conv2_label")
+        self.block3_conv2_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block3_conv2_label)
+
+        self.block3_conv3_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block3_conv3_label.setObjectName(u"block3_conv3_label")
+        self.block3_conv3_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block3_conv3_label)
+
+        self.block3_conv4_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block3_conv4_label.setObjectName(u"block3_conv4_label")
+        self.block3_conv4_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block3_conv4_label)
+
+        self.block4_conv1_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block4_conv1_label.setObjectName(u"block4_conv1_label")
+        self.block4_conv1_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block4_conv1_label)
+
+        self.block4_conv2_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block4_conv2_label.setObjectName(u"block4_conv2_label")
+        self.block4_conv2_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block4_conv2_label)
+
+        self.block4_conv3_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block4_conv3_label.setObjectName(u"block4_conv3_label")
+        self.block4_conv3_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block4_conv3_label)
+
+        self.block4_conv4_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block4_conv4_label.setObjectName(u"block4_conv4_label")
+        self.block4_conv4_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block4_conv4_label)
+
+        self.block5_conv1_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block5_conv1_label.setObjectName(u"block5_conv1_label")
+        self.block5_conv1_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block5_conv1_label)
+
+        self.block5_conv2_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block5_conv2_label.setObjectName(u"block5_conv2_label")
+        self.block5_conv2_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block5_conv2_label)
+
+        self.block5_conv3_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block5_conv3_label.setObjectName(u"block5_conv3_label")
+        self.block5_conv3_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block5_conv3_label)
+
+        self.block5_conv4_label = QDoubleSpinBox(self.scrollAreaWidgetContents_3)
+        self.block5_conv4_label.setObjectName(u"block5_conv4_label")
+        self.block5_conv4_label.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_8.addWidget(self.block5_conv4_label)
+
+        self.content_weight_box.setWidget(self.scrollAreaWidgetContents_3)
+
+        self.verticalLayout_6.addWidget(self.content_weight_box)
+
+
+        self.horizontalLayout_5.addLayout(self.verticalLayout_6)
+
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.style_layer_box_label = QLabel(self.centralwidget)
@@ -346,13 +496,13 @@ class Ui_MainWindow(QMainWindow):
 
         self.verticalLayout_3.addWidget(self.style_layer_box_label)
 
-        self.style_layer_box_2 = QScrollArea(self.centralwidget)
-        self.style_layer_box_2.setObjectName(u"style_layer_box_2")
-        self.style_layer_box_2.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        self.style_layer_box_2.setWidgetResizable(True)
+        self.style_layer_box = QScrollArea(self.centralwidget)
+        self.style_layer_box.setObjectName(u"style_layer_box")
+        self.style_layer_box.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.style_layer_box.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 428, 380))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 200, 380))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.block1_conv1_box_2 = QCheckBox(self.scrollAreaWidgetContents_2)
@@ -435,26 +585,148 @@ class Ui_MainWindow(QMainWindow):
 
         self.verticalLayout_2.addWidget(self.block5_conv4_box_2)
 
-        self.style_layer_box_2.setWidget(self.scrollAreaWidgetContents_2)
+        self.style_layer_box.setWidget(self.scrollAreaWidgetContents_2)
 
-        self.verticalLayout_3.addWidget(self.style_layer_box_2)
+        self.verticalLayout_3.addWidget(self.style_layer_box)
 
 
         self.horizontalLayout_5.addLayout(self.verticalLayout_3)
 
+        self.verticalLayout_7 = QVBoxLayout()
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.style_weight_box_label = QLabel(self.centralwidget)
+        self.style_weight_box_label.setObjectName(u"style_weight_box_label")
+
+        self.verticalLayout_7.addWidget(self.style_weight_box_label)
+
+        self.style_weight_box = QScrollArea(self.centralwidget)
+        self.style_weight_box.setObjectName(u"style_weight_box")
+        self.style_weight_box.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.style_weight_box.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_4 = QWidget()
+        self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 201, 428))
+        self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents_4)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.block1_conv1_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block1_conv1_label_2.setObjectName(u"block1_conv1_label_2")
+        self.block1_conv1_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block1_conv1_label_2)
+
+        self.block1_conv2_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block1_conv2_label_2.setObjectName(u"block1_conv2_label_2")
+        self.block1_conv2_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block1_conv2_label_2)
+
+        self.block2_conv1_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block2_conv1_label_2.setObjectName(u"block2_conv1_label_2")
+        self.block2_conv1_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block2_conv1_label_2)
+
+        self.block2_conv2_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block2_conv2_label_2.setObjectName(u"block2_conv2_label_2")
+        self.block2_conv2_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block2_conv2_label_2)
+
+        self.block3_conv1_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block3_conv1_label_2.setObjectName(u"block3_conv1_label_2")
+        self.block3_conv1_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block3_conv1_label_2)
+
+        self.block3_conv2_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block3_conv2_label_2.setObjectName(u"block3_conv2_label_2")
+        self.block3_conv2_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block3_conv2_label_2)
+
+        self.block3_conv3_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block3_conv3_label_2.setObjectName(u"block3_conv3_label_2")
+        self.block3_conv3_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block3_conv3_label_2)
+
+        self.block3_conv4_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block3_conv4_label_2.setObjectName(u"block3_conv4_label_2")
+        self.block3_conv4_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block3_conv4_label_2)
+
+        self.block4_conv1_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block4_conv1_label_2.setObjectName(u"block4_conv1_label_2")
+        self.block4_conv1_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block4_conv1_label_2)
+
+        self.block4_conv2_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block4_conv2_label_2.setObjectName(u"block4_conv2_label_2")
+        self.block4_conv2_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block4_conv2_label_2)
+
+        self.block4_conv3_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block4_conv3_label_2.setObjectName(u"block4_conv3_label_2")
+        self.block4_conv3_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block4_conv3_label_2)
+
+        self.block4_conv4_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block4_conv4_label_2.setObjectName(u"block4_conv4_label_2")
+        self.block4_conv4_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block4_conv4_label_2)
+
+        self.block5_conv1_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block5_conv1_label_2.setObjectName(u"block5_conv1_label_2")
+        self.block5_conv1_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block5_conv1_label_2)
+
+        self.block5_conv2_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block5_conv2_label_2.setObjectName(u"block5_conv2_label_2")
+        self.block5_conv2_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block5_conv2_label_2)
+
+        self.block5_conv3_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block5_conv3_label_2.setObjectName(u"block5_conv3_label_2")
+        self.block5_conv3_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block5_conv3_label_2)
+
+        self.block5_conv4_label_2 = QDoubleSpinBox(self.scrollAreaWidgetContents_4)
+        self.block5_conv4_label_2.setObjectName(u"block5_conv4_label_2")
+        self.block5_conv4_label_2.setCorrectionMode(QAbstractSpinBox.CorrectToNearestValue)
+
+        self.verticalLayout_9.addWidget(self.block5_conv4_label_2)
+
+        self.style_weight_box.setWidget(self.scrollAreaWidgetContents_4)
+
+        self.verticalLayout_7.addWidget(self.style_weight_box)
+
+
+        self.horizontalLayout_5.addLayout(self.verticalLayout_7)
+
+        self.horizontalLayout_5.setStretch(0, 1)
+        self.horizontalLayout_5.setStretch(1, 1)
+        self.horizontalLayout_5.setStretch(2, 1)
+        self.horizontalLayout_5.setStretch(3, 1)
 
         self.verticalLayout_10.addLayout(self.horizontalLayout_5)
 
         self.verticalLayout_10.setStretch(0, 20)
         self.verticalLayout_10.setStretch(1, 1)
-        self.verticalLayout_10.setStretch(2, 10)
 
         self.horizontalLayout_9.addLayout(self.verticalLayout_10)
 
         self.horizontalLayout_9.setStretch(0, 3)
         self.horizontalLayout_9.setStretch(1, 7)
 
-        self.horizontalLayout.addLayout(self.horizontalLayout_9)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_9)
 
         self.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(self)
@@ -499,14 +771,22 @@ class Ui_MainWindow(QMainWindow):
         self.block5_conv3_box_2.stateChanged.connect(self.uncheck)
         self.block5_conv4_box_2.stateChanged.connect(self.uncheck)
 
+        # bind callback to clicked event
         self.source_in.clicked.connect(self.chooseImage)
         self.style_in.clicked.connect(self.chooseImage)
+
+        # bind callback to scrolled event
+        self.content_layer_box.verticalScrollBar().valueChanged.connect(self.syncScrollbar)
+        self.style_layer_box.verticalScrollBar().valueChanged.connect(self.syncScrollbar)
+        self.content_weight_box.verticalScrollBar().valueChanged.connect(self.syncScrollbar)
+        self.style_weight_box.verticalScrollBar().valueChanged.connect(self.syncScrollbar)
     # setupUi
 
     def retranslateUi(self):
         self.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.source_in.setText(QCoreApplication.translate("MainWindow", u"*click to choose content*", None))
         self.style_in.setText(QCoreApplication.translate("MainWindow", u"*click to choose style*", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Number of iterations:", None))
         self.optimizer_label.setText(QCoreApplication.translate("MainWindow", u"Optimizer:", None))
         self.optimizer_box.setItemText(0, QCoreApplication.translate("MainWindow", u"Adadelta", None))
         self.optimizer_box.setItemText(1, QCoreApplication.translate("MainWindow", u"Adagrad", None))
@@ -525,6 +805,7 @@ class Ui_MainWindow(QMainWindow):
         self.output_image.setText(QCoreApplication.translate("MainWindow", u"output", None))
         self.run_button.setText(QCoreApplication.translate("MainWindow", u"Run", None))
         self.progress_bar.setFormat(QCoreApplication.translate("MainWindow", u"completion: %p%", None))
+        self.save_to_file_button.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.content_layer_box_label.setText(QCoreApplication.translate("MainWindow", u"Choose content layers:", None))
         self.block1_conv1_box.setText(QCoreApplication.translate("MainWindow", u"block1_conv1", None))
         self.block1_conv2_box.setText(QCoreApplication.translate("MainWindow", u"block1_conv2", None))
@@ -542,6 +823,7 @@ class Ui_MainWindow(QMainWindow):
         self.block5_conv2_box.setText(QCoreApplication.translate("MainWindow", u"block5_conv2", None))
         self.block5_conv3_box.setText(QCoreApplication.translate("MainWindow", u"block5_conv3", None))
         self.block5_conv4_box.setText(QCoreApplication.translate("MainWindow", u"block5_conv4", None))
+        self.content_weight_box_label.setText(QCoreApplication.translate("MainWindow", u"Choose content weights:", None))
         self.style_layer_box_label.setText(QCoreApplication.translate("MainWindow", u"Choose style layers:", None))
         self.block1_conv1_box_2.setText(QCoreApplication.translate("MainWindow", u"block1_conv1", None))
         self.block1_conv2_box_2.setText(QCoreApplication.translate("MainWindow", u"block1_conv2", None))
@@ -559,80 +841,146 @@ class Ui_MainWindow(QMainWindow):
         self.block5_conv2_box_2.setText(QCoreApplication.translate("MainWindow", u"block5_conv2", None))
         self.block5_conv3_box_2.setText(QCoreApplication.translate("MainWindow", u"block5_conv3", None))
         self.block5_conv4_box_2.setText(QCoreApplication.translate("MainWindow", u"block5_conv4", None))
+        self.style_weight_box_label.setText(QCoreApplication.translate("MainWindow", u"Choose style weights:", None))
     # retranslateUi
-    
+
     # uncheck if respective another checkbox is checked
     def uncheck(self, state):
         if state == Qt.Checked:  
             if self.sender() == self.block1_conv1_box:
                 self.block1_conv1_box_2.setChecked(False)
+                self.block1_conv1_label_2.setEnabled(False)
+                self.block1_conv1_label.setEnabled(True)
             elif self.sender() == self.block1_conv2_box:
                 self.block1_conv2_box_2.setChecked(False)
+                self.block1_conv2_label_2.setEnabled(False)
+                self.block1_conv2_label.setEnabled(True)
             elif self.sender() == self.block2_conv1_box:
                 self.block2_conv1_box_2.setChecked(False)
+                self.block2_conv1_label_2.setEnabled(False)
+                self.block2_conv1_label.setEnabled(True)
             elif self.sender() == self.block2_conv2_box:
                 self.block2_conv2_box_2.setChecked(False)
+                self.block2_conv2_label_2.setEnabled(False)
+                self.block2_conv2_label.setEnabled(True)
             elif self.sender() == self.block3_conv1_box:
                 self.block3_conv1_box_2.setChecked(False)
+                self.block3_conv1_label_2.setEnabled(False)
+                self.block3_conv1_label.setEnabled(True)
             elif self.sender() == self.block3_conv2_box:
                 self.block3_conv2_box_2.setChecked(False)
+                self.block3_conv2_label_2.setEnabled(False)
+                self.block3_conv2_label.setEnabled(True)
             elif self.sender() == self.block3_conv3_box:
                 self.block3_conv3_box_2.setChecked(False)
+                self.block3_conv3_label_2.setEnabled(False)
+                self.block3_conv3_label.setEnabled(True)
             elif self.sender() == self.block3_conv4_box:
                 self.block3_conv4_box_2.setChecked(False)
+                self.block3_conv4_label_2.setEnabled(False)
+                self.block3_conv4_label.setEnabled(True)
             elif self.sender() == self.block4_conv1_box:
                 self.block4_conv1_box_2.setChecked(False)
+                self.block4_conv1_label_2.setEnabled(False)
+                self.block4_conv1_label.setEnabled(True)
             elif self.sender() == self.block4_conv2_box:
                 self.block4_conv2_box_2.setChecked(False)
+                self.block4_conv2_label_2.setEnabled(False)
+                self.block4_conv2_label.setEnabled(True)
             elif self.sender() == self.block4_conv3_box:
                 self.block4_conv3_box_2.setChecked(False)
+                self.block4_conv3_label_2.setEnabled(False)
+                self.block4_conv3_label.setEnabled(True)
             elif self.sender() == self.block4_conv4_box:
                 self.block4_conv4_box_2.setChecked(False)
+                self.block4_conv4_label_2.setEnabled(False)
+                self.block4_conv4_label.setEnabled(True)
             elif self.sender() == self.block5_conv1_box:
                 self.block5_conv1_box_2.setChecked(False)
+                self.block5_conv1_label_2.setEnabled(False)
+                self.block5_conv1_label.setEnabled(True)
             elif self.sender() == self.block5_conv2_box:
                 self.block5_conv2_box_2.setChecked(False)
+                self.block5_conv2_label_2.setEnabled(False)
+                self.block5_conv2_label.setEnabled(True)
             elif self.sender() == self.block5_conv3_box:
                 self.block5_conv3_box_2.setChecked(False)
+                self.block5_conv3_label_2.setEnabled(False)
+                self.block5_conv3_label.setEnabled(True)
             elif self.sender() == self.block5_conv4_box:
                 self.block5_conv4_box_2.setChecked(False)
+                self.block5_conv4_label_2.setEnabled(False)
+                self.block5_conv4_label.setEnabled(True)
             elif self.sender() == self.block1_conv1_box_2:
                 self.block1_conv1_box.setChecked(False)
+                self.block1_conv1_label.setEnabled(False)
+                self.block1_conv1_label_2.setEnabled(True)
             elif self.sender() == self.block1_conv2_box_2:
                 self.block1_conv2_box.setChecked(False)
+                self.block1_conv2_label.setEnabled(False)
+                self.block1_conv2_label_2.setEnabled(True)
             elif self.sender() == self.block2_conv1_box_2:
                 self.block2_conv1_box.setChecked(False)
+                self.block2_conv1_label.setEnabled(False)
+                self.block2_conv1_label_2.setEnabled(True)
             elif self.sender() == self.block2_conv2_box_2:
                 self.block2_conv2_box.setChecked(False)
+                self.block2_conv2_label.setEnabled(False)
+                self.block2_conv2_label_2.setEnabled(True)
             elif self.sender() == self.block3_conv1_box_2:
                 self.block3_conv1_box.setChecked(False)
+                self.block3_conv1_label.setEnabled(False)
+                self.block3_conv1_label_2.setEnabled(True)
             elif self.sender() == self.block3_conv2_box_2:
                 self.block3_conv2_box.setChecked(False)
+                self.block3_conv2_label.setEnabled(False)
+                self.block3_conv2_label_2.setEnabled(True)
             elif self.sender() == self.block3_conv3_box_2:
                 self.block3_conv3_box.setChecked(False)
+                self.block3_conv3_label.setEnabled(False)
+                self.block3_conv3_label_2.setEnabled(True)
             elif self.sender() == self.block3_conv4_box_2:
                 self.block3_conv4_box.setChecked(False)
+                self.block3_conv4_label.setEnabled(False)
+                self.block3_conv4_label_2.setEnabled(True)
             elif self.sender() == self.block4_conv1_box_2:
                 self.block4_conv1_box.setChecked(False)
+                self.block4_conv1_label.setEnabled(False)
+                self.block4_conv1_label_2.setEnabled(True)
             elif self.sender() == self.block4_conv2_box_2:
                 self.block4_conv2_box.setChecked(False)
+                self.block4_conv2_label.setEnabled(False)
+                self.block4_conv2_label_2.setEnabled(True)
             elif self.sender() == self.block4_conv3_box_2:
                 self.block4_conv3_box.setChecked(False)
+                self.block4_conv3_label.setEnabled(False)
+                self.block4_conv3_label_2.setEnabled(True)
             elif self.sender() == self.block4_conv4_box_2:
                 self.block4_conv4_box.setChecked(False)
+                self.block4_conv4_label.setEnabled(False)
+                self.block4_conv4_label_2.setEnabled(True)
             elif self.sender() == self.block5_conv1_box_2:
                 self.block5_conv1_box.setChecked(False)
+                self.block5_conv1_label.setEnabled(False)
+                self.block5_conv1_label_2.setEnabled(True)
             elif self.sender() == self.block5_conv2_box_2:
                 self.block5_conv2_box.setChecked(False)
+                self.block5_conv2_label.setEnabled(False)
+                self.block5_conv2_label_2.setEnabled(True)
             elif self.sender() == self.block5_conv3_box_2:
                 self.block5_conv3_box.setChecked(False)
+                self.block5_conv3_label.setEnabled(False)
+                self.block5_conv3_label_2.setEnabled(True)
             elif self.sender() == self.block5_conv4_box_2:
                 self.block5_conv4_box.setChecked(False)
+                self.block5_conv4_label.setEnabled(False)
+                self.block5_conv4_label_2.setEnabled(True)
 
     def openFileNameDialog(self):
         options = QFileDialog.Options()
         return QFileDialog.getOpenFileName(self,"Choose an image...", "","JPG file (*.jpg);;PNG file (*.png);;Bitmap file (*.bmp)", options=options)
 
+    # prompt the user to choose an image from file
     def chooseImage(self):
         self.sender().setText("")
         if self.sender() == self.source_in:
@@ -641,3 +989,22 @@ class Ui_MainWindow(QMainWindow):
         elif self.sender() == self.style_in:
             self.img_style, _ = self.openFileNameDialog()
             self.sender().setStyleSheet("background-image : url("+str(self.img_style)+");")
+
+    # adjust other scrollbars to current one's value
+    def syncScrollbar(self, value):
+        # the range is different so we need to normalize
+        sb = self.sender()
+        rang = sb.maximum() - sb.minimum()
+        percent = value / rang
+
+        slb = self.style_layer_box.verticalScrollBar()
+        cwb = self.content_weight_box.verticalScrollBar()
+        swb = self.style_weight_box.verticalScrollBar()
+        clb = self.content_layer_box.verticalScrollBar()
+
+        sb.blockSignals(True) # dodging infinite recursion
+        slb.setValue(percent * (slb.maximum() - slb.minimum()))
+        cwb.setValue(percent * (cwb.maximum() - cwb.minimum()))
+        swb.setValue(percent * (swb.maximum() - swb.minimum()))
+        clb.setValue(percent * (clb.maximum() - clb.minimum()))
+        sb.blockSignals(False)
