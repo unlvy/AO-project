@@ -1,5 +1,4 @@
-from gui_interface import (Ui_MainWindow)
-from nst import *
+from gui_interface import Ui_MainWindow
 
 from PyQt5 import *
 
