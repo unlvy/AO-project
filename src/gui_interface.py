@@ -1312,6 +1312,7 @@ class Ui_MainWindow(QMainWindow):
         return self.learning_rate.value()
 
     def runNST(self):
+        url = "/home/ak/Pictures/ble.jpg"
         neural_style_transfer(
             self.getStyleLayers(),
             self.getStyleWeights(),
@@ -1321,8 +1322,10 @@ class Ui_MainWindow(QMainWindow):
             self.getOptimizer(),
             self.getStyleImagePath(),
             self.getContentImagePath(),
-            "/home/ak/Pictures",
+            url,
             0.5,
             self.getIterationCount(),
             self.getOutputSize(),
             self.getComputationSize())
+        self.output_image.setText("")
+        self.output_image.setStyleSheet("background-image : url("+url+");")
