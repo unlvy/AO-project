@@ -15,6 +15,8 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QRadialGradient)
 from PyQt5.QtWidgets import *
 
+from nst import *
+
 
 class Ui_MainWindow(QMainWindow):
     def setupUi(self):
@@ -860,7 +862,7 @@ class Ui_MainWindow(QMainWindow):
         self.block5_conv4_label_2.setEnabled(False)
 
         # bind run_button to nst
-        self.run_button.clicked.connect(self.getStyleImagePath)
+        self.run_button.clicked.connect(self.runNST)
 
         # additional flags
         self.contentImageSet = False
@@ -1143,161 +1145,184 @@ class Ui_MainWindow(QMainWindow):
     def getStyleLayers(self):
         result = []
         if self.block1_conv1_box_2.isChecked():
-            result += "block1_conv1"
+            result.append("block1_conv1")
         elif self.block1_conv2_box_2.isChecked():
-            result += "block1_conv2"
+            result.append("block1_conv2")
         elif self.block2_conv1_box_2.isChecked():
-            result += "block2_conv1"
+            result.append("block2_conv1")
         elif self.block2_conv2_box_2.isChecked():
-            result += "block2_conv2"
+            result.append("block2_conv2")
         elif self.block3_conv1_box_2.isChecked():
-            result += "block3_conv1"
+            result.append("block3_conv1")
         elif self.block3_conv2_box_2.isChecked():
-            result += "block3_conv2"
+            result.append("block3_conv2")
         elif self.block3_conv3_box_2.isChecked():
-            result += "block3_conv3"
+            result.append("block3_conv3")
         elif self.block3_conv4_box_2.isChecked():
-            result += "block3_conv4"
+            result.append("block3_conv4")
         elif self.block4_conv1_box_2.isChecked():
-            result += "block4_conv1"
+            result.append("block4_conv1")
         elif self.block4_conv2_box_2.isChecked():
-            result += "block4_conv2"
+            result.append("block4_conv2")
         elif self.block4_conv3_box_2.isChecked():
-            result += "block4_conv3"
+            result.append("block4_conv3")
         elif self.block4_conv4_box_2.isChecked():
-            result += "block4_conv4"
+            result.append("block4_conv4")
         elif self.block5_conv1_box_2.isChecked():
-            result += "block5_conv1"
+            result.append("block5_conv1")
         elif self.block5_conv2_box_2.isChecked():
-            result += "block5_conv2"
+            result.append("block5_conv2")
         elif self.block5_conv3_box_2.isChecked():
-            result += "block5_conv3"
+            result.append("block5_conv3")
         elif self.block5_conv4_box_2.isChecked():
-            result += "block5_conv4"
+            result.append("block5_conv4")
         return result
 
     def getContentLayers(self):
         result = []
         if self.block1_conv1_box.isChecked():
-            result += "block1_conv1"
+            result.append("block1_conv1")
         elif self.block1_conv2_box.isChecked():
-            result += "block1_conv2"
+            result.append("block1_conv2")
         elif self.block2_conv1_box.isChecked():
-            result += "block2_conv1"
+            result.append("block2_conv1")
         elif self.block2_conv2_box.isChecked():
-            result += "block2_conv2"
+            result.append("block2_conv2")
         elif self.block3_conv1_box.isChecked():
-            result += "block3_conv1"
+            result.append("block3_conv1")
         elif self.block3_conv2_box.isChecked():
-            result += "block3_conv2"
+            result.append("block3_conv2")
         elif self.block3_conv3_box.isChecked():
-            result += "block3_conv3"
+            result.append("block3_conv3")
         elif self.block3_conv4_box.isChecked():
-            result += "block3_conv4"
+            result.append("block3_conv4")
         elif self.block4_conv1_box.isChecked():
-            result += "block4_conv1"
+            result.append("block4_conv1")
         elif self.block4_conv2_box.isChecked():
-            result += "block4_conv2"
+            result.append("block4_conv2")
         elif self.block4_conv3_box.isChecked():
-            result += "block4_conv3"
+            result.append("block4_conv3")
         elif self.block4_conv4_box.isChecked():
-            result += "block4_conv4"
+            result.append("block4_conv4")
         elif self.block5_conv1_box.isChecked():
-            result += "block5_conv1"
+            result.append("block5_conv1")
         elif self.block5_conv2_box.isChecked():
-            result += "block5_conv2"
+            result.append("block5_conv2")
         elif self.block5_conv3_box.isChecked():
-            result += "block5_conv3"
+            result.append("block5_conv3")
         elif self.block5_conv4_box.isChecked():
-            result += "block5_conv4"
+            result.append("block5_conv4")
         return result
 
     def getStyleWeights(self):
         result = []
         if self.block1_conv1_box_2.isChecked():
-            result += self.block1_conv1_label_2.value()
+            result.append(self.block1_conv1_label_2.value())
         elif self.block1_conv2_box_2.isChecked():
-            result += self.block1_conv2_label_2.value()
+            result.append(self.block1_conv2_label_2.value())
         elif self.block2_conv1_box_2.isChecked():
-            result += self.block2_conv1_label_2.value()
+            result.append(self.block2_conv1_label_2.value())
         elif self.block2_conv2_box_2.isChecked():
-            result += self.block2_conv2_label_2.value()
+            result.append(self.block2_conv2_label_2.value())
         elif self.block3_conv1_box_2.isChecked():
-            result += self.block3_conv1_label_2.value()
+            result.append(self.block3_conv1_label_2.value())
         elif self.block3_conv2_box_2.isChecked():
-            result += self.block3_conv2_label_2.value()
+            result.append(self.block3_conv2_label_2.value())
         elif self.block3_conv3_box_2.isChecked():
-            result += self.block3_conv3_label_2.value()
+            result.append(self.block3_conv3_label_2.value())
         elif self.block3_conv4_box_2.isChecked():
-            result += self.block3_conv4_label_2.value()
+            result.append(self.block3_conv4_label_2.value())
         elif self.block4_conv1_box_2.isChecked():
-            result += self.block4_conv1_label_2.value()
+            result.append(self.block4_conv1_label_2.value())
         elif self.block4_conv2_box_2.isChecked():
-            result += self.block4_conv2_label_2.value()
+            result.append(self.block4_conv2_label_2.value())
         elif self.block4_conv3_box_2.isChecked():
-            result += self.block4_conv3_label_2.value()
+            result.append(self.block4_conv3_label_2.value())
         elif self.block4_conv4_box_2.isChecked():
-            result += self.block4_conv4_label_2.value()
+            result.append(self.block4_conv4_label_2.value())
         elif self.block5_conv1_box_2.isChecked():
-            result += self.block5_conv1_label_2.value()
+            result.append(self.block5_conv1_label_2.value())
         elif self.block5_conv2_box_2.isChecked():
-            result += self.block5_conv2_label_2.value()
+            result.append(self.block5_conv2_label_2.value())
         elif self.block5_conv3_box_2.isChecked():
-            result += self.block5_conv3_label_2.value()
+            result.append(self.block5_conv3_label_2.value())
         elif self.block5_conv4_box_2.isChecked():
-            result += self.block5_conv4_label_2.value()
+            result.append(self.block5_conv4_label_2.value())
         return result
 
     def getContentWeights(self):
         result = []
         if self.block1_conv1_box.isChecked():
-            result += self.block1_conv1_label.value()
+            result.append(self.block1_conv1_label.value())
         elif self.block1_conv2_box.isChecked():
-            result += self.block1_conv2_label.value()
+            result.append(self.block1_conv2_label.value())
         elif self.block2_conv1_box.isChecked():
-            result += self.block2_conv1_label.value()
+            result.append(self.block2_conv1_label.value())
         elif self.block2_conv2_box.isChecked():
-            result += self.block2_conv2_label.value()
+            result.append(self.block2_conv2_label.value())
         elif self.block3_conv1_box.isChecked():
-            result += self.block3_conv1_label.value()
+            result.append(self.block3_conv1_label.value())
         elif self.block3_conv2_box.isChecked():
-            result += self.block3_conv2_label.value()
+            result.append(self.block3_conv2_label.value())
         elif self.block3_conv3_box.isChecked():
-            result += self.block3_conv3_label.value()
+            result.append(self.block3_conv3_label.value())
         elif self.block3_conv4_box.isChecked():
-            result += self.block3_conv4_label.value()
+            result.append(self.block3_conv4_label.value())
         elif self.block4_conv1_box.isChecked():
-            result += self.block4_conv1_label.value()
+            result.append(self.block4_conv1_label.value())
         elif self.block4_conv2_box.isChecked():
-            result += self.block4_conv2_label.value()
+            result.append(self.block4_conv2_label.value())
         elif self.block4_conv3_box.isChecked():
-            result += self.block4_conv3_label.value()
+            result.append(self.block4_conv3_label.value())
         elif self.block4_conv4_box.isChecked():
-            result += self.block4_conv4_label.value()
+            result.append(self.block4_conv4_label.value())
         elif self.block5_conv1_box.isChecked():
-            result += self.block5_conv1_label.value()
+            result.append(self.block5_conv1_label.value())
         elif self.block5_conv2_box.isChecked():
-            result += self.block5_conv2_label.value()
+            result.append(self.block5_conv2_label.value())
         elif self.block5_conv3_box.isChecked():
-            result += self.block5_conv3_label.value()
+            result.append(self.block5_conv3_label.value())
         elif self.block5_conv4_box.isChecked():
-            result += self.block5_conv4_label.value()
+            result.append(self.block5_conv4_label.value())
         return result
 
     def getOptimizerName(self):
         return self.optimizer_box.currentText()
 
+    def getOptimizer(self):
+        if self.getOptimizerName() == "Adam":
+            return tf.optimizers.Adam(learning_rate = self.getLearningRate(), beta_1 = 0.99, epsilon = 0.1);
+
     def getStyleImagePath(self):
         return self.style_in.styleSheet().split('(')[1].split(')')[0]
 
     def getContentImagePath(self):
-        return self.content_in.styleSheet().split('(')[1].split(')')[0]
+        return self.source_in.styleSheet().split('(')[1].split(')')[0]
 
     def getIterationCount(self):
         return self.iterations.value()
 
     def getOutputSize(self):
-        return [out_width, out_height]
+        return [self.out_width.value(), self.out_height.value()]
 
     def getComputationSize(self):
-        return [comp_width, comp_height]
+        return [self.comp_width.value(), self.comp_height.value()]
+
+    def getLearningRate(self):
+        return self.learning_rate.value()
+
+    def runNST(self):
+        neural_style_transfer(
+            self.getStyleLayers(),
+            self.getStyleWeights(),
+            self.getContentLayers(),
+            self.getContentWeights(),
+            69,
+            self.getOptimizer(),
+            self.getStyleImagePath(),
+            self.getContentImagePath(),
+            "/home/ak/Pictures",
+            0.5,
+            self.getIterationCount(),
+            self.getOutputSize(),
+            self.getComputationSize())
