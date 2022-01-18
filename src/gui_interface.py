@@ -821,11 +821,12 @@ class Ui_MainWindow(QMainWindow):
         self.style_in.clicked.connect(self.unlockRunButton)
 
         # bind callback to unlock save button once the progress bar hits 100%
-        self.progress_bar.valueChanged.connect(self.unlockSaveButton)
+        # self.progress_bar.valueChanged.connect(self.unlockSaveButton)
+        self.save_to_file_button.clicked.connect(self.chooseSavePath)
 
         # block widgets which can't work at the start of the app
         self.run_button.setEnabled(False)
-        self.save_to_file_button.setEnabled(False)
+        # self.save_to_file_button.setEnabled(False)
         self.progress_bar.setEnabled(False)
         self.progress_bar.setValue(0)
         self.block1_conv1_label.setEnabled(False)
@@ -1139,8 +1140,16 @@ class Ui_MainWindow(QMainWindow):
     def unlockRunButton(self):
         self.run_button.setEnabled(self.isAnyLayerChecked() and self.areBothImagesSet())
 
-    def unlockSaveButton(self):
-        self.save_to_file_button.setEnabled(self.run_button.isEnabled() and self.progress_bar.value(100))
+    def chooseSavePath(self):
+        options = QFileDialog.Options()
+        self.save_path = QFileDialog.getExistingDirectory(self, "Choose a path...", options=options)
+        if self.save_path != 0:
+            url = self.save_path + "/generated.jpg"
+            last_dir =  ".../"+url.split('/')[-2]
+        else:
+            url = "generated.jpg"
+            last_dir = "./"
+        self.save_to_file_button.setText(last_dir)
     
     def getStyleLayers(self):
         result = []
@@ -1291,7 +1300,21 @@ class Ui_MainWindow(QMainWindow):
 
     def getOptimizer(self):
         if self.getOptimizerName() == "Adam":
-            return tf.optimizers.Adam(learning_rate = self.getLearningRate(), beta_1 = 0.99, epsilon = 0.1);
+            return tf.optimizers.Adam(learning_rate = self.getLearningRate())
+        elif self.getOptimizerName() == "Adadelta":
+            return tf.optimizers.Adadelta(learning_rate = self.getLearningRate())
+        elif self.getOptimizerName() == "Adagrad":
+            return tf.optimizers.Adagrad(learning_rate = self.getLearningRate())
+        elif self.getOptimizerName() == "Adamax":
+            return tf.optimizers.Adamax(learning_rate = self.getLearningRate())
+        elif self.getOptimizerName() == "Ftrl":
+            return tf.optimizers.Ftrl(learning_rate = self.getLearningRate())
+        elif self.getOptimizerName() == "Nadam":
+            return tf.optimizers.Nadam(learning_rate = self.getLearningRate())
+        elif self.getOptimizerName() == "RMSprop":
+            return tf.optimizers.RMSprop(learning_rate = self.getLearningRate())
+        elif self.getOptimizerName() == "SGD":
+            return tf.optimizers.SGD(learning_rate = self.getLearningRate())
 
     def getStyleImagePath(self):
         return self.style_in.styleSheet().split('(')[1].split(')')[0]
@@ -1312,7 +1335,10 @@ class Ui_MainWindow(QMainWindow):
         return self.learning_rate.value()
 
     def runNST(self):
-        url = "/home/ak/Pictures/ble.jpg"
+        if self.save_path != 0:
+            url = self.save_path + "/generated.jpg"
+        else:
+            url = "generated.jpg"
         neural_style_transfer(
             self.getStyleLayers(),
             self.getStyleWeights(),
