@@ -868,6 +868,7 @@ class Ui_MainWindow(QMainWindow):
         # additional flags
         self.contentImageSet = False
         self.styleImageSet = False
+        self.save_path = ""
     # setupUi
 
     def retranslateUi(self):
@@ -1073,12 +1074,16 @@ class Ui_MainWindow(QMainWindow):
         self.sender().setText("")
         if self.sender() == self.source_in:
             self.img_content, _ = self.openFileNameDialog()
-            self.sender().setStyleSheet("background-image : url("+str(self.img_content)+");")
+            pixmap = QPixmap(str(self.img_content))
             self.contentImageSet = True
         elif self.sender() == self.style_in:
             self.img_style, _ = self.openFileNameDialog()
-            self.sender().setStyleSheet("background-image : url("+str(self.img_style)+");")
+            pixmap = QPixmap(str(self.img_style))
             self.styleImageSet = True
+        
+        icon = QIcon(pixmap)
+        self.sender().setIcon(icon)
+        self.sender().setIconSize(self.sender().rect().size())
 
     # adjust other scrollbars to current one's value
     def syncScrollbar(self, value):
@@ -1143,7 +1148,7 @@ class Ui_MainWindow(QMainWindow):
     def chooseSavePath(self):
         options = QFileDialog.Options()
         self.save_path = QFileDialog.getExistingDirectory(self, "Choose a path...", options=options)
-        if self.save_path != 0:
+        if self.save_path != "":
             url = self.save_path + "/generated.jpg"
             last_dir =  ".../"+url.split('/')[-2]
         else:
@@ -1317,10 +1322,10 @@ class Ui_MainWindow(QMainWindow):
             return tf.optimizers.SGD(learning_rate = self.getLearningRate())
 
     def getStyleImagePath(self):
-        return self.style_in.styleSheet().split('(')[1].split(')')[0]
+        return str(self.img_style)
 
     def getContentImagePath(self):
-        return self.source_in.styleSheet().split('(')[1].split(')')[0]
+        return str(self.img_content)
 
     def getIterationCount(self):
         return self.iterations.value()
@@ -1335,11 +1340,13 @@ class Ui_MainWindow(QMainWindow):
         return self.learning_rate.value()
 
     def runNST(self):
-        if self.save_path != 0:
+        self.progress_bar.setEnabled(True)
+        if self.save_path != "":
             url = self.save_path + "/generated.jpg"
         else:
             url = "generated.jpg"
         neural_style_transfer(
+            self.progress_bar,
             self.getStyleLayers(),
             self.getStyleWeights(),
             self.getContentLayers(),
@@ -1354,4 +1361,5 @@ class Ui_MainWindow(QMainWindow):
             self.getOutputSize(),
             self.getComputationSize())
         self.output_image.setText("")
-        self.output_image.setStyleSheet("background-image : url("+url+");")
+        self.output_pixmap = QPixmap(url)
+        self.output_image.setPixmap(self.output_pixmap.scaled(self.output_image.size(), aspectRatioMode = Qt.KeepAspectRatio))
