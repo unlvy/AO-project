@@ -3,6 +3,8 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 
+from PyQt5.QtWidgets import *
+
 #################### image processing utilities ####################
 
 def load_image(image_path, computation_size):
@@ -164,6 +166,7 @@ class NSTModel(keras.models.Model):
 #################### neural style transfer algorithm ####################
         
 def neural_style_transfer(
+    progress_bar,
     style_layers, 
     style_weights, 
     content_layers, 
@@ -229,7 +232,9 @@ def neural_style_transfer(
         optimizer.apply_gradients([(grad, result_tensor)])
         
     for i in range(iterations):
-        train_step() 
+        progress_bar.setValue(i / iterations * 100.0)
+        train_step()
+    progress_bar.setValue(100)
     # save result
     # 4D -> 3D
     result_tensor = tf.reshape(result_tensor, [computation_size[0], computation_size[1], 3])
